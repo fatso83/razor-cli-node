@@ -3,9 +3,11 @@
   "version": "0.0.1",
   "description": "Build Razor partials",
   "main": "index.js",
+  "bin": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall" : "mono ext-lib/nuget.exe restore ext-lib/packages.config -PackagesDirectory ext-lib/"
+    "postinstall" : "npm run nuget-install",
+    "nuget-install": "mono ext-lib/nuget.exe restore ext-lib/packages.config -PackagesDirectory ext-lib/"
   },
   "repository": {
     "type": "git",
@@ -20,8 +22,6 @@
   "dependencies": {
     "commander": "^2.9.0",
     "fs-extra": "^0.28.0",
-    "glob": "^7.0.3",
-    "promisify-node": "^0.4.0",
-    "run-all": "^1.0.1"
+    "glob": "^7.0.3"
   }
 }

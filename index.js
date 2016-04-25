@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 "use strict";
 const promisify = require("promisify-node");
 const glob = promisify(require("glob"));
@@ -50,7 +52,7 @@ function buildPartial(partialName){
         const JSON_PATH=`${dirLib}/Newtonsoft.Json.8.0.3/lib/net45`;
         let env = { MONO_PATH : [RAZORENG_PATH,RAZOR_PATH,JSON_PATH].join(path.delimiter) };
 
-        const cp = child_process.exec(`MONO_PATH=${env.MONO_PATH} mono ext-lib/razor-cli.exe ${partialName} ${modelFileName}`, env, (err, stdout, stderr) => {
+        const cp = child_process.exec(`MONO_PATH=${env.MONO_PATH} mono ${__dirname}/ext-lib/razor-cli.exe ${partialName} ${modelFileName}`, env, (err, stdout, stderr) => {
             if(err) reject(err);
 
             fse.outputFile(outputFile, stdout, (err) => {
