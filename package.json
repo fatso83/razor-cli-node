@@ -1,0 +1,27 @@
+{
+  "name": "razor-cli",
+  "version": "0.0.1",
+  "description": "Build Razor partials",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall" : "mono ext-lib/nuget.exe restore ext-lib/packages.config -PackagesDirectory ext-lib/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/fatso83/razor-cli-node.git"
+  },
+  "author": "Carl-Erik Kopseng",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fatso83/razor-cli-node/issues"
+  },
+  "homepage": "https://github.com/fatso83/razor-cli-node#readme",
+  "dependencies": {
+    "commander": "^2.9.0",
+    "fs-extra": "^0.28.0",
+    "glob": "^7.0.3",
+    "promisify-node": "^0.4.0",
+    "run-all": "^1.0.1"
+  }
+}
