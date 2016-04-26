@@ -24,7 +24,7 @@ if( !program.partials || !program.output) {
 
 
 // options is optional
-glob(program.partials + "**/*.cshtml", options)
+glob(program.partials + "/**/*.cshtml", options)
     .then(files => {
         const jobs = files.map( f => buildPartial(f) );
 

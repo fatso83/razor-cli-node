@@ -5,7 +5,7 @@
   "main": "index.js",
   "bin": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "bats test",
     "postinstall": "npm run nuget-install",
     "nuget-install": "mono ext-lib/nuget.exe restore ext-lib/packages.config -PackagesDirectory ext-lib/"
   },
@@ -22,6 +22,7 @@
   "dependencies": {
     "commander": "^2.9.0",
     "fs-extra": "^0.28.0",
-    "glob": "^7.0.3"
+    "glob": "^7.0.3",
+    "promisify-node": "^0.4.0"
   }
 }
