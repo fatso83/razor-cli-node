@@ -39,10 +39,15 @@ glob(program.partials + "/**/*.cshtml", options)
  * @returns {Promise}
  */
 function buildPartial(partialName){
-    const dir = path.dirname(partialName);
+    const partialDir = path.dirname(partialName);
     const baseName = path.basename(partialName, ".cshtml");
-    const modelFileName = path.join(dir, baseName) + ".example.json";
-    const outputFile = path.join(program.output, dir, baseName) + ".html";
+    const modelFileName = path.join(partialDir, baseName) + ".example.json";
+
+    // remove the first part
+    const outputDir = path.join(program.output, partialDir.replace(program.partials, ""));
+
+    // TODO: normalize. This might break otherwise
+    const outputFile =  outputDir + "/" + baseName + ".html";
 
     return new Promise((resolve, reject) => {
 

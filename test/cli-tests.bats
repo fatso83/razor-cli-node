@@ -11,11 +11,12 @@ EXPECTED="$DIR/expected-output"
 
 setup(){
     rm -rf $OUTPUT_DIR
-    install
+    #install
 }
 
 teardown(){
-    rm -rf $OUTPUT_DIR
+    :
+    #rm -rf $OUTPUT_DIR
 }
 
 install(){
@@ -26,5 +27,5 @@ install(){
 
 @test "Basic functionality" {
     run $CMD --partials "$PARTIALS" --output "$OUTPUT_DIR"
-    diff "$EXPECTED"/partial.html  "$OUTPUT_DIR/$PARTIALS"/partial.html
+    diff "$EXPECTED"/partial.html  "$OUTPUT_DIR/partial.html"
 }
