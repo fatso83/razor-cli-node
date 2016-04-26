@@ -2,7 +2,7 @@
 > Compile Razor templates
 
 _Requires a working Mono runtime_. 
-With a little tweaking it should also work
+[With a little tweaking](#help-needed) it should also work
 with the normal .NET runtime as well.
 
 ## Install
