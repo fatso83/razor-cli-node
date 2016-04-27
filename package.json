@@ -6,9 +6,9 @@
   "bin": "index.js",
   "scripts": {
     "test": "bats test",
-    "postinstall": "npm-run-all nuget-install copy-dlls",
+    "postinstall": "npm run nuget-install && npm run copy-dlls",
     "copy-dlls": "node dotnet/copy-deps.js",
-    "nuget-install": "cd dotnet && convert-slash-exec nuget restore -PackagesDirectory ."
+    "nuget-install": "cd dotnet && convert-slash-exec ./nuget restore -PackagesDirectory ."
   },
   "repository": {
     "type": "git",
