@@ -46,18 +46,14 @@ function buildPartial(partialName){
     // remove the first part
     const outputDir = path.join(program.output, partialDir.replace(program.partials, ""));
 
-    // TODO: normalize. This might break otherwise
-    const outputFile =  outputDir + "/" + baseName + ".html";
+    const outputFile =  path.join(outputDir, baseName + ".html");
 
     return new Promise((resolve, reject) => {
 
-        const dirLib = path.join(__dirname, "ext-lib");
-        const RAZOR_PATH=`${dirLib}/Microsoft.AspNet.Razor.3.0.0/lib/net45`;
-        const RAZORENG_PATH=`${dirLib}/RazorEngine.3.8.2/lib/net45`;
-        const JSON_PATH=`${dirLib}/Newtonsoft.Json.8.0.3/lib/net45`;
-        let env = { MONO_PATH : [RAZORENG_PATH,RAZOR_PATH,JSON_PATH].join(path.delimiter) };
+        const dirLib = path.join(__dirname, "dotnet");
+        const env = {};
 
-        const cp = child_process.exec(`MONO_PATH=${env.MONO_PATH} mono ${__dirname}/ext-lib/razor-cli.exe ${partialName} ${modelFileName}`, env, (err, stdout, stderr) => {
+        const cp = child_process.exec(`${dirLib}/razor-cli ${partialName} ${modelFileName}`, env, (err, stdout, stderr) => {
             if(err) reject(err);
 
             fse.outputFile(outputFile, stdout, (err) => {

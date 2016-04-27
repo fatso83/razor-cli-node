@@ -6,8 +6,9 @@
   "bin": "index.js",
   "scripts": {
     "test": "bats test",
-    "postinstall": "npm run nuget-install",
-    "nuget-install": "mono ext-lib/nuget.exe restore ext-lib/packages.config -PackagesDirectory ext-lib/"
+    "postinstall": "npm-run-all nuget-install copy-dlls",
+    "copy-dlls": "node dotnet/copy-deps.js",
+    "nuget-install": "dotnet/nuget restore dotnet/packages.config -PackagesDirectory dotnet/"
   },
   "repository": {
     "type": "git",
@@ -21,8 +22,12 @@
   "homepage": "https://github.com/fatso83/razor-cli-node#readme",
   "dependencies": {
     "commander": "^2.9.0",
+    "copyfiles": "^0.2.1",
     "fs-extra": "^0.28.0",
     "glob": "^7.0.3",
     "promisify-node": "^0.4.0"
+  },
+  "devDependencies": {
+    "npm-run-all": "^1.8.0"
   }
 }

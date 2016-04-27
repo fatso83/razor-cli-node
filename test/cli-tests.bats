@@ -25,6 +25,10 @@ install(){
     npm install 
 }
 
+@test "Running works" {
+    run $CMD --partials "$PARTIALS" --output "$OUTPUT_DIR" && rm -rf $OUTPUT_DIR
+}
+
 @test "Basic functionality" {
     run $CMD --partials "$PARTIALS" --output "$OUTPUT_DIR"
     diff "$EXPECTED"/partial.html  "$OUTPUT_DIR/partial.html"

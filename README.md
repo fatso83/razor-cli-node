@@ -1,10 +1,7 @@
 # razor-cli-node
 > Compile Razor templates
 
-_Requires a working Mono runtime_. 
-[With a little tweaking](https://github.com/fatso83/razor-cli/issues/2) 
-in the underlying .NET utility it should also work
-with the normal .NET runtime in Windows as well.
+_Requires a working .NET runtime_. You can use Mono on Mac and Windows.
 
 ## Install
 `npm install -g razor-cli`
@@ -21,8 +18,5 @@ We have a wrapper around a [utility using .NET libraries](https://github.com/fat
 which is the the piece actually doing the work.
 
 The basic functionality is in place, but we need better
-error handling and some work to make it work on Windows
-without the Mono runtime.
-
-Most substantial improvements will be probably end up in
+error handling. Most substantial improvements will be probably end up in
 the [.NET utility](https://github.com/fatso83/razor-cli).
