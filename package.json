@@ -8,7 +8,7 @@
     "test": "bats test",
     "postinstall": "npm-run-all nuget-install copy-dlls",
     "copy-dlls": "node dotnet/copy-deps.js",
-    "nuget-install": "dotnet/nuget restore dotnet/packages.config -PackagesDirectory dotnet/"
+    "nuget-install": "cd dotnet && nuget restore packages.config -PackagesDirectory ."
   },
   "repository": {
     "type": "git",
