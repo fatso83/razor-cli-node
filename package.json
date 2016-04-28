@@ -1,6 +1,6 @@
 {
   "name": "razor-cli",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "description": "Build Razor partials",
   "main": "index.js",
   "bin": "index.js",
