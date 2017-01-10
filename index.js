@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 "use strict";
+var normalize = require('normalize-path');
 const promisify = require("promisify-node");
 const glob = promisify(require("glob"));
 const fse = require("fs-extra");
@@ -39,13 +40,13 @@ glob(program.partials + "/**/*.cshtml", options)
  * @returns {Promise}
  */
 function buildPartial(partialName){
-    const partialDir = path.dirname(partialName);
+    const normalizedPartialName = normalize(partialName);
+    const partialDir = normalize(path.dirname(partialName));
     const baseName = path.basename(partialName, ".cshtml");
     const modelFileName = path.join(partialDir, baseName) + ".example.json";
 
     // remove the first part
-    const outputDir = path.join(program.output, partialDir.replace(program.partials, ""));
-
+    const outputDir = path.join(program.output, partialDir.replace(normalize(program.partials), ""));
     const outputFile =  path.join(outputDir, baseName + ".html");
 
     return new Promise((resolve, reject) => {

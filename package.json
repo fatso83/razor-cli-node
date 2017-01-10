@@ -32,6 +32,7 @@
     "promisify-node": "^0.4.0"
   },
   "devDependencies": {
+    "normalize-path": "^2.0.1",
     "pre-commit": "^1.2.2"
   }
 }
