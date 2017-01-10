@@ -50,7 +50,7 @@ function buildPartial(partialName){
 
     return new Promise((resolve, reject) => {
 
-        const dirLib = path.join(__dirname, "dotnet");
+        const dirLib = path.join(__dirname, "build");
         const env = {};
 
         const cp = child_process.exec(`${dirLib}/razor-cli ${partialName} ${modelFileName}`, env, (err, stdout, stderr) => {

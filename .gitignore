@@ -1,4 +1,6 @@
 # Do not check in dlls - get them from NuGet
 
-*.dll
 node_modules
+build
+node_modules
+packages

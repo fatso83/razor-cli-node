@@ -8,7 +8,7 @@
     "test": "bats test",
     "postinstall": "npm run nuget-install && npm run copy-dlls",
     "copy-dlls": "node dotnet/copy-deps.js",
-    "nuget-install": "cd dotnet && convert-slash-exec ./nuget restore -PackagesDirectory .",
+    "nuget-install": "cd dotnet && convert-slash-exec ./nuget restore -PackagesDirectory ../packages",
     "prepublish": "./scripts/warn-if-dirty.sh",
     "force-clean": "git clean -f -d"
   },
